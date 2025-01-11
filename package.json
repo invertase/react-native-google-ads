@@ -66,9 +66,12 @@
   },
   "scripts": {
     "prepare": "yarn build && yarn build:plugin",
-    "build": "genversion --es6 --semi src/version.ts && bob build",
+    "build": "genversion --es6 --semi src/version.ts && bob build && yarn codegen",
     "build:clean": "rimraf android/build && rimraf ios/build && rimraf lib && rimraf plugin/build",
     "build:plugin": "yarn tsc --build plugin",
+    "codegen": "yarn codegen:android && yarn codegen:ios",
+    "codegen:android": "npx --yes @react-native-community/cli codegen --platform android --outputPath android/src/codegen",
+    "codegen:ios": "npx --yes @react-native-community/cli codegen --platform ios --outputPath ios/RNGoogleMobileAdsSpec",
     "lint:code": "yarn lint:js && yarn lint:android && yarn lint:ios:check",
     "lint:js": "eslint src/ --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "lint:android": "google-java-format --set-exit-if-changed --replace --glob=\"android/**/*.java\"",
@@ -169,6 +172,7 @@
     "name": "RNGoogleMobileAdsSpec",
     "type": "all",
     "jsSrcsDir": "./src/specs",
+    "includesGeneratedCode": true,
     "android": {
       "javaPackageName": "io.invertase.googlemobileads"
     }

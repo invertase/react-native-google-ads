@@ -19,7 +19,7 @@
 #import <GoogleMobileAds/GADNativeAd.h>
 
 #ifdef RCT_NEW_ARCH_ENABLED
-#import <RNGoogleMobileAdsSpec/RNGoogleMobileAdsSpec.h>
+#import <RNGoogleMobileAds/RNGoogleMobileAdsSpec.h>
 
 @interface RNGoogleMobileAdsNativeModule
     : NativeGoogleMobileAdsNativeModuleSpecBase <NativeGoogleMobileAdsNativeModuleSpec>

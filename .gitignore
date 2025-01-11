@@ -554,6 +554,8 @@ GoogleService-Info.plist
 src/version.ts
 RNFBVersion.m
 ReactNativeFirebaseVersion.java
+android/src/codegen/
+ios/RNGoogleMobileAdsSpec/
 
 appPlaygrounds/
 app.playground.js

@@ -22,9 +22,6 @@
 #if !TARGET_OS_MACCATALYST
 #include <UserMessagingPlatform/UserMessagingPlatform.h>
 #endif
-#ifdef RCT_NEW_ARCH_ENABLED
-#import "RNGoogleMobileAdsSpec.h"
-#endif
 #import "RNGoogleMobileAdsConsentModule.h"
 #import "common/RNSharedUtils.h"
 
