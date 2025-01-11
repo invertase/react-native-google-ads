@@ -3,6 +3,7 @@ module.exports = {
     platforms: {
       android: {
         packageImportPath: 'import io.invertase.googlemobileads.ReactNativeGoogleMobileAdsPackage;',
+        cmakeListsPath: './android/src/codegen/jni/CMakeLists.txt',
       },
       ios: {
         scriptPhases: [
