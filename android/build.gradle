@@ -113,6 +113,7 @@ android {
       main {
         if (isNewArchitectureEnabled()) {
           java.srcDirs += ['src/newarch']
+          java.srcDirs += ['src/codegen/java']
         } else {
           java.srcDirs += ['src/oldarch']
         }

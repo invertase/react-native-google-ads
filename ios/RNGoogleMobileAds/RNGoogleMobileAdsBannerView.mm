@@ -5,10 +5,10 @@
 #import "RNGoogleMobileAdsBannerView.h"
 #import "RNGoogleMobileAdsCommon.h"
 
-#import <react/renderer/components/RNGoogleMobileAdsSpec/ComponentDescriptors.h>
-#import <react/renderer/components/RNGoogleMobileAdsSpec/EventEmitters.h>
-#import <react/renderer/components/RNGoogleMobileAdsSpec/Props.h>
-#import <react/renderer/components/RNGoogleMobileAdsSpec/RCTComponentViewHelpers.h>
+#import <RNGoogleMobileAds/ComponentDescriptors.h>
+#import <RNGoogleMobileAds/EventEmitters.h>
+#import <RNGoogleMobileAds/Props.h>
+#import <RNGoogleMobileAds/RCTComponentViewHelpers.h>
 
 #import "RCTFabricComponentsPlugins.h"
 

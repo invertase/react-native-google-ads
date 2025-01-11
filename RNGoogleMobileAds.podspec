@@ -1,5 +1,6 @@
 require 'json'
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+new_arch_enabled = ENV['RCT_NEW_ARCH_ENABLED'] == '1'
 
 google_mobile_ads_sdk_version = package['sdkVersions']['ios']['googleMobileAds']
 google_ump_sdk_version = package['sdkVersions']['ios']['googleUmp']
@@ -19,8 +20,14 @@ Pod::Spec.new do |s|
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.ios.deployment_target = "12.0"
   s.cocoapods_version   = '>= 1.12.0'
-  s.source_files        = "ios/**/*.{h,m,mm,swift}"
+  s.source_files        = "ios/RNGoogleMobileAds/**/*.{h,m,mm,swift}"
   s.weak_frameworks     = "AppTrackingTransparency"
+
+  if new_arch_enabled then
+    s.subspec 'RNGoogleMobileAdsSpec' do |ss|
+      ss.source_files = "ios/RNGoogleMobileAdsSpec/**/*.{h,mm,cpp}"
+    end
+  end
 
   # Use install_modules_dependencies helper to install the dependencies if React Native version >=0.71.0.
   # See https://github.com/facebook/react-native/blob/febf6b7f33fdb4904669f99d795eba4c0f95d7bf/scripts/cocoapods/new_architecture.rb#L79.
@@ -30,7 +37,7 @@ Pod::Spec.new do |s|
     s.dependency "React-Core"
 
     # Don't install the dependencies when we run `pod install` in the old architecture.
-    if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
+    if new_arch_enabled then
       s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"
       s.pod_target_xcconfig    = {
           "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",

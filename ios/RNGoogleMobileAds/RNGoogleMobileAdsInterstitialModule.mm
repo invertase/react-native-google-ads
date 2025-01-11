@@ -19,9 +19,6 @@
 
 #import "RNGoogleMobileAdsInterstitialModule.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
-#ifdef RCT_NEW_ARCH_ENABLED
-#import "RNGoogleMobileAdsSpec.h"
-#endif
 #import "RNGoogleMobileAdsCommon.h"
 #import "RNGoogleMobileAdsFullScreenAd.h"
 
