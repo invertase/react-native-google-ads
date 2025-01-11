@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import path from 'node:path';
 
 /**
+ * @link https://github.com/facebook/react-native/issues/45079
  * Currently, running react-native codegen generates java files with package name `com.facebook.fbreact.specs`.
  * This is a known issue in react-native itself.
  * You can find the relevant line here: https://github.com/facebook/react-native/blob/dc460147bb00d6f912cc0a829f8040d85faeeb13/packages/react-native/scripts/codegen/generate-artifacts-executor.js#L459.
