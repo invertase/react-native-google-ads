@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
 
   if new_arch_enabled then
     s.subspec 'RNGoogleMobileAdsSpec' do |ss|
-      ss.module_name  = "RNGoogleMobileAdsSpec"
       ss.source_files = "ios/RNGoogleMobileAdsSpec/**/*.{h,mm,cpp}"
     end
   end
