@@ -69,9 +69,7 @@
     "build": "genversion --es6 --semi src/version.ts && bob build && yarn codegen",
     "build:clean": "rimraf android/build && rimraf ios/build && rimraf lib && rimraf plugin/build",
     "build:plugin": "yarn tsc --build plugin",
-    "codegen": "yarn codegen:android && yarn codegen:ios",
-    "codegen:android": "npx --yes @react-native-community/cli codegen --platform android --outputPath android/src/codegen",
-    "codegen:ios": "npx --yes @react-native-community/cli codegen --platform ios --outputPath ios/RNGoogleMobileAdsSpec",
+    "codegen": "npx --yes @react-native-community/cli codegen && node scripts/patch-codegen.mjs",
     "lint:code": "yarn lint:js && yarn lint:android && yarn lint:ios:check",
     "lint:js": "eslint src/ --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "lint:android": "google-java-format --set-exit-if-changed --replace --glob=\"android/src/main/**/*.java\"",
@@ -144,6 +142,7 @@
     "eslint-plugin-react": "^7.31.10",
     "expo": "^47.0.0",
     "expo-module-scripts": "^3.5.2",
+    "fs-extra": "^11.2.0",
     "genversion": "^3.1.1",
     "google-java-format": "^1.1.0",
     "jest": "^29.2.2",
@@ -172,6 +171,10 @@
     "name": "RNGoogleMobileAdsSpec",
     "type": "all",
     "jsSrcsDir": "./src/specs",
+    "outputDir": {
+      "android": "./android/src/codegen",
+      "ios": "./ios/RNGoogleMobileAdsSpec"
+    },
     "includesGeneratedCode": true,
     "android": {
       "javaPackageName": "io.invertase.googlemobileads"
